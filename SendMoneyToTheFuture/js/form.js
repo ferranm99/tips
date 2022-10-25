@@ -16,15 +16,16 @@ $("#getQuoteForm").submit(function(e){
       
       //we receive response here
       //alert("Data: " + data + "\nStatus: " + status);
-      if(data != 'false'){
+      if(data.length == 34){
         //<a href="https://www.bitcoinqrcodemaker.com" target="_blank"></a>
 
         let h2 = "<h2>Send your coins here 👇</h2>"
         let QR = '<img src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&amp;address='+
                 data+'" height="300" width="300" border="0" alt="Bitcoin QR code" title="bitcoin:'+data+'">'
+        let addr = '<h6 style="margin-top:10px;">'+data+"</h6>"
       
     
-        $("#rightContainer").html(h2 + QR);
+        $("#rightContainer").html(h2 + QR + addr);
         $("#rightContainer").css("text-align", "center");
       
       }else{
